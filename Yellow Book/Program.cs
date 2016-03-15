@@ -8,39 +8,48 @@ namespace Yellow_Book
 {
     class UsefulMethod
     {
-        static double readValue(
-            string prompt,
-            double low,
-            double high
-            )
-        {
-            double result = 0;
-            do
-            {
-                Console.WriteLine(prompt +
-                    " between " + low +
-                    " and " + high);
-                string resultString = Console.ReadLine();
-                result = double.Parse(resultString);
-            } while ((result < low) || (result > high));
+        //static double readValue(
+        //    string prompt,
+        //    double low,
+        //    double high
+        //    )
+        //{
+        //    double result = 0;
+        //    do
+        //    {
+        //        Console.WriteLine(prompt +
+        //            " between " + low +
+        //            " and " + high);
+        //        string resultString = Console.ReadLine();
+        //        result = double.Parse(resultString);
+        //    } while ((result < low) || (result > high));
 
-            return result;
+        //    return result;
+        //}
+
+        static void addOne(int i)
+        {
+            i = i + 1;
+            Console.WriteLine("i is: " + i);
         }
 
-        const double MAX_WIDTH = 5.0;
-        const double MIN_WIDTH = 0.5;
+        //const double MAX_WIDTH = 5.0;
+        //const double MIN_WIDTH = 0.5;
 
         static void Main()
         {
-            double windowWidth = readValue(
-                "Enter width of window: ", MIN_WIDTH, MAX_WIDTH);
+            //double windowWidth = readValue(
+            //    "Enter width of window: ", MIN_WIDTH, MAX_WIDTH);
 
-            Console.WriteLine("Width: " + windowWidth);
+            //Console.WriteLine("Width: " + windowWidth);
 
-            double age = readValue("Enter your age: ", 0, 70);
+            //double age = readValue("Enter your age: ", 0, 70);
 
-            Console.WriteLine("Age: " + age);
-            
+            //Console.WriteLine("Age: " + age);
+
+            int test = 20;
+            addOne(test);
+            Console.WriteLine("test is: " + test);
         }
     }
 }
