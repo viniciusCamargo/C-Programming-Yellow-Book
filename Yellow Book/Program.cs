@@ -6,42 +6,41 @@ using System.Threading.Tasks;
 
 namespace Yellow_Book
 {
-    class Program
+    class UsefulMethod
     {
-        static void Main(string[] args)
+        static double readValue(
+            string prompt,
+            double low,
+            double high
+            )
         {
-            double width, height, woodLength, glassArea;
-            const double MAX_WIDTH = 5.0;
-            const double MIN_WIDTH = 0.5;
-            const double MAX_HEIGHT = 3.0;
-            const double MIN_HEIGHT = 0.75;
-            string widthString, heightString;
-
+            double result = 0;
             do
             {
-                Console.WriteLine("Give the width of the window between " +
-                    MIN_WIDTH + " and " + MAX_WIDTH);
-                widthString = Console.ReadLine();
-                width = double.Parse(widthString);
-            } while (width < MIN_WIDTH || width > MAX_WIDTH);
+                Console.WriteLine(prompt +
+                    " between " + low +
+                    " and " + high);
+                string resultString = Console.ReadLine();
+                result = double.Parse(resultString);
+            } while ((result < low) || (result > high));
 
-            do
-            {
-                Console.WriteLine("Give the height of the window between " +
-                    MIN_HEIGHT + " and " + MAX_HEIGHT);
-                heightString = Console.ReadLine();
-                height = double.Parse(heightString);
-            } while (height < MIN_HEIGHT || height > MAX_HEIGHT);
+            return result;
+        }
 
-            woodLength = 2 * (width + height) * 3.25;
+        const double MAX_WIDTH = 5.0;
+        const double MIN_WIDTH = 0.5;
 
-            glassArea = 2 * (width * height);
+        static void Main()
+        {
+            double windowWidth = readValue(
+                "Enter width of window: ", MIN_WIDTH, MAX_WIDTH);
 
-            Console.WriteLine("The length of the wood is " +
-                woodLength + " feet");
+            Console.WriteLine("Width: " + windowWidth);
 
-            Console.WriteLine("The area of the glass is " +
-                glassArea + " square metres");
+            double age = readValue("Enter your age: ", 0, 70);
+
+            Console.WriteLine("Age: " + age);
+            
         }
     }
 }
